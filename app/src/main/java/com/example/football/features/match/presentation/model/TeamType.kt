@@ -1,4 +1,4 @@
-package com.example.football.features.match.domain.model
+package com.example.football.features.match.presentation.model
 
 sealed class TeamType()
 

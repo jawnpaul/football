@@ -7,6 +7,7 @@ import com.example.football.features.match.domain.model.MatchResponse
 import com.example.football.features.match.domain.repository.IMatchRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import timber.log.Timber
 import javax.inject.Inject
 
 class MatchRepository @Inject constructor(private val apiService: ApiService) : IMatchRepository {
@@ -26,6 +27,7 @@ class MatchRepository @Inject constructor(private val apiService: ApiService) : 
                 }
             )
         } catch (e: Exception) {
+            Timber.e(e.stackTraceToString())
             emit(Either.Left(Failure.ServerError))
         }
     }
